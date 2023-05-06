@@ -1,0 +1,43 @@
+header {
+    display: flex;
+    flex-direction: column; /* измененное значение */
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    margin-bottom: 30px;
+  }
+  
+  header img {
+    padding-top: 20px;
+    max-width: 200px;
+    height: 100px;
+    object-fit: cover;
+  }
+  nav {
+    margin-top: 10px; /* измененное значение */
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav li {
+    margin: 0 10px;
+  }
+  
+  nav a {
+    display: block;
+    padding: 5px 10px;
+    background-color: #ccc;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  nav a:hover {
+    background-color: #333;
+    color: #fff;
+  }
