@@ -10,7 +10,9 @@ import (
 )
 
 func LoginPageGetController(ctx *gin.Context) {
-	ctx.HTML(http.StatusOK, "login.html", nil)
+	ctx.HTML(http.StatusOK, "login.html", gin.H{
+		"Error": false,
+	})
 }
 
 func LoginPagePostController(ctx *gin.Context) {
@@ -25,11 +27,14 @@ func LoginPagePostController(ctx *gin.Context) {
 	}
 
 	if err := authenticate(log, pwd, &student); err != nil {
-		ctx.JSON(http.StatusUnauthorized, gin.H{"error": "Authentication failed"})
+		ctx.HTML(http.StatusBadRequest, "login.html", gin.H{
+			"Error":        true,
+			"ErrorMessage": "Неправильный логин или пароль",
+		})
 		return
 	}
 
-	ctx.HTML(http.StatusOK, "home.html", nil)
+	ctx.Redirect(http.StatusFound, "/home")
 }
 
 func authenticate(login string, password string, dbStudent *models.Student) error {

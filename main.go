@@ -31,5 +31,5 @@ func main() {
 	routes.LoginRoute(rootPath)
 	routes.HomeRoute(rootPath)
 
-	router.Run()
+	router.Run(":8000")
 }

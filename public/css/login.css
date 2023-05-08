@@ -1,10 +1,14 @@
 body {
 margin: 0;
 padding: 0;
-display: flex;
+display: grid;
 justify-content: center;
 align-items: center;
-height: 100vh;
+height: 70vh;
+}
+
+.error {
+    color: red;
 }
 
 .login-container {
@@ -43,8 +47,8 @@ margin-bottom: 10px;
 button {
 padding: 10px;
 border-radius: 5px;
-border: none;
-background-color: #007bff;
+border: none#876ED7;
+background-color: #6A48D7;
 color: #fff;
 width: 100%;
 box-sizing: border-box;
@@ -53,5 +57,5 @@ cursor: pointer;
 }
 
 button:hover {
-background-color: #0062cc;
+background-color: #412C84;
 }
