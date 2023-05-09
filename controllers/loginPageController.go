@@ -6,10 +6,17 @@ import (
 	"kait_portfolio/database/models"
 	"net/http"
 
+	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 )
 
 func LoginPageGetController(ctx *gin.Context) {
+	session := sessions.Default(ctx)
+
+	if session.Get("authenticated") == true {
+		ctx.Redirect(http.StatusFound, "/home")
+	}
+
 	ctx.HTML(http.StatusOK, "login.html", gin.H{
 		"Error": false,
 	})
@@ -33,6 +40,10 @@ func LoginPagePostController(ctx *gin.Context) {
 		})
 		return
 	}
+
+	session := sessions.Default(ctx)
+	session.Set("authenticated", true)
+	session.Save()
 
 	ctx.Redirect(http.StatusFound, "/home")
 }
