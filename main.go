@@ -6,6 +6,8 @@ import (
 	"kait_portfolio/routes"
 	"net/http"
 
+	"github.com/gin-contrib/sessions"
+	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
 )
 
@@ -16,6 +18,9 @@ func init() {
 
 func main() {
 	router := gin.Default()
+
+	store := cookie.NewStore([]byte("secret"))
+	router.Use(sessions.Sessions("mysession", store))
 
 	rootPath := router.Group("/")
 
