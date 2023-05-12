@@ -9,4 +9,5 @@ type Student struct {
 	Group_id    int    `json:"group_id"`
 	Speciality  int    `json:"speciality_id"`
 	Description string `json:"desc"`
+	Cumpus_id   int    `json:"cumpus_id"`
 }

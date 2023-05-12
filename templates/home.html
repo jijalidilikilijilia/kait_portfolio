@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../public/css/home.css">
+	<meta charset="UTF-8">
+	<title>Мой профиль</title>
+	<link rel="stylesheet" href="../public/css/home.css">
 </head>
 <body>
-    <header>
-        <img src="../public/img/kait_logo.jpg" alt="Шапка сайта">
-        <nav>
-          <ul>
-            <li><a href="#">Мой профиль</a></li>
-            <li><a href="#">Мои достижения</a></li>
-            <li><a href="#">О колледже</a></li>
-          </ul>
-        </nav>
-      </header>
-      <body>
-        <div class="content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, eveniet.
-        </div>
-        <img src="../public/img/war.jpg" alt="тимоха">
-        <img src="../public/img/dota.jpg" alt="тимоха">
-      </body>
+	<header>
+		<img src="../public/img/logo-kait.jpg" alt="Мой логотип" width="200">
+	</header>
+	<nav>
+		<a href="#">Мой профиль</a>
+		<a href="#">Мои достижения</a>
+		<a href="#">О нас</a>
+	</nav>
+	<div class="user-info">
+		<img src="user-avatar.jpg" alt="Аватар пользователя">
+		<h2>{{ .full_name }}</h2>
+		<p>Возраст: {{ .age }}</p>
+		<p>Номер группы: 12345</p>
+		<p>Отделение: Информационные технологии</p>
+		<p>Куратор: Петрова Ольга Ивановна</p>
+		<p>Специальность: Веб-разработка</p>
+		<p id="about">О себе: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce luctus justo ac purus fermentum, id euismod lectus lobortis. Maecenas nec dui vel magna volutpat lacinia.</p>
+		<button>Редактировать профиль</button>
+	</div>
 </body>
 </html>
