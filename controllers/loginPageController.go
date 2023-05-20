@@ -17,7 +17,7 @@ func LoginPageGetController(ctx *gin.Context) {
 		ctx.Redirect(http.StatusFound, "/home")
 	}
 
-	ctx.HTML(http.StatusOK, "login.html", gin.H{
+	ctx.HTML(http.StatusFound, "login.html", gin.H{
 		"Error": false,
 	})
 }
@@ -43,6 +43,7 @@ func LoginPagePostController(ctx *gin.Context) {
 
 	session := sessions.Default(ctx)
 	session.Set("authenticated", true)
+	session.Set("username", log)
 	session.Save()
 
 	ctx.Redirect(http.StatusFound, "/home")
