@@ -33,7 +33,7 @@ func LoginPagePostController(ctx *gin.Context) {
 		return
 	}
 
-	if err := authenticate(log, pwd, &student); err != nil {
+	if err := authenticate(log, pwd, &student, ctx); err != nil {
 		ctx.HTML(http.StatusBadRequest, "login.html", gin.H{
 			"Error":        true,
 			"ErrorMessage": "Неправильный логин или пароль",
@@ -49,8 +49,9 @@ func LoginPagePostController(ctx *gin.Context) {
 	ctx.Redirect(http.StatusFound, "/home")
 }
 
-func authenticate(login string, password string, dbStudent *models.Student) error {
+func authenticate(login string, password string, dbStudent *models.Student, ctx *gin.Context) error {
 	db := database.DB
+	session := sessions.Default(ctx)
 
 	if err := db.Table("kait_portfolio.student").Where("login = ?", login).First(&dbStudent).Error; err != nil {
 		return err
@@ -59,6 +60,8 @@ func authenticate(login string, password string, dbStudent *models.Student) erro
 	if dbStudent.Password != password {
 		return errors.New("invalid password")
 	}
+
+	session.Set("user_id", dbStudent.Id)
 
 	return nil
 }
