@@ -16,14 +16,13 @@
 	</nav>
 	<div class="user-info">
 		<img src="user-avatar.jpg" alt="Аватар пользователя">
-		<h2>{{ .user.Username }}</h2>
+		<h2>{{ .user.Full_name }}</h2>
 		<p>Возраст: {{ .user.Age }}</p>
-		<p>АЙДИ: {{ .user.Id }}</p>
-		<p>Группа: 12345</p>
-		<p>Отделение: Информационные технологии</p>
-		<p>Куратор: Петрова Ольга Ивановна</p>
-		<p>Специальность: Веб-разработка</p>
-		<p id="about">О себе: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce luctus justo ac purus fermentum, id euismod lectus lobortis. Maecenas nec dui vel magna volutpat lacinia.</p>
+		<p>Группа: {{ .user.Group_name }}</p>
+		<p>Отделение: {{ .user.Cumpus_name }}</p>
+		<p>Куратор: {{ .user.Curator_name }}</p>
+		<p>Специальность: {{ .user.Speciality_name }}</p>
+		<p id="about">О себе: {{ .user.Description }}</p>
 		<button>Редактировать профиль</button>
 	</div>
 </body>
