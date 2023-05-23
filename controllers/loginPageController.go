@@ -14,7 +14,7 @@ func LoginPageGetController(ctx *gin.Context) {
 	session := sessions.Default(ctx)
 
 	if session.Get("authenticated") == true {
-		ctx.Redirect(http.StatusFound, "/home")
+		ctx.Redirect(http.StatusFound, "/profile")
 	}
 
 	ctx.HTML(http.StatusFound, "login.html", gin.H{
@@ -46,7 +46,7 @@ func LoginPagePostController(ctx *gin.Context) {
 	session.Set("username", log)
 	session.Save()
 
-	ctx.Redirect(http.StatusFound, "/home")
+	ctx.Redirect(http.StatusFound, "/profile")
 }
 
 func authenticate(login string, password string, dbStudent *models.Student, ctx *gin.Context) error {

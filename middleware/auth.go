@@ -17,7 +17,6 @@ func AuthMiddleware(db *gorm.DB) gin.HandlerFunc {
 			ctx.Abort()
 			return
 		}
-
 		// if auth go next
 		ctx.Next()
 	}

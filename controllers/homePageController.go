@@ -18,16 +18,12 @@ type userInfoToShow struct {
 	Description     string
 }
 
-func HomePageGetController(ctx *gin.Context) {
+func ProfilePageGetController(ctx *gin.Context) {
 	userInfoToShow := getUserData(ctx)
 
-	ctx.HTML(http.StatusOK, "home.html", gin.H{
+	ctx.HTML(http.StatusOK, "profile.html", gin.H{
 		"user": userInfoToShow,
 	})
-}
-
-func HomePagePostController(ctx *gin.Context) {
-
 }
 
 func getUserData(ctx *gin.Context) userInfoToShow {

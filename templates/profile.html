@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Мой профиль</title>
+	<link rel="stylesheet" href="../public/css/profile.css">
+</head>
+<body>
+	<header>
+		<a href="https://kait20.mskobr.ru/">
+			<img src="../public/img/logo-kait.jpg" alt="Мой логотип" width="200">
+		</a>
+	</header>
+	<nav>
+		<a href="#">Мой профиль</a>
+		<a href="#">Мои достижения</a>
+		<a href="#">О нас</a>
+	</nav>
+	<div class="user-info">
+		<img src="user-avatar.jpg" alt="Аватар пользователя">
+		<h2>{{ .user.Full_name }}</h2>
+		<p>Возраст: {{ .user.Age }}</p>
+		<p>Группа: {{ .user.Group_name }}</p>
+		<p>Отделение: {{ .user.Cumpus_name }}</p>
+		<p>Куратор: {{ .user.Curator_name }}</p>
+		<p>Специальность: {{ .user.Speciality_name }}</p>
+		<p id="about">О себе: {{ .user.Description }}</p>
+		<button>Редактировать профиль</button>
+	</div>
+</body>
+</html>
