@@ -26,6 +26,10 @@ max-width: 600px;
 margin: 0 auto;
 }
 
+#current_page {
+    background-color: #4e296b46;
+}
+
 .user-info {
     background-color: #f2f2f2;
     padding: 20px;
