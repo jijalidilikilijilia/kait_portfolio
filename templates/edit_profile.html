@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/edit_profile.css">
+    <title>Редактировать профиль</title>
+</head>
+<body>
+    <header>
+		<a href="https://kait20.mskobr.ru/">
+			<img src="../public/img/logo-kait.jpg" alt="Мой логотип" width="200">
+		</a>
+	</header>
+	<nav>
+		<a href="/profile">Мой профиль</a>
+		<a href="/achievments">Мои достижения</a>
+		<a href="/about">О нас</a>
+		<a href="/logout">Выйти из профиля</a>
+	</nav>
+    <form action="/edit_profile" method="POST" enctype="multipart/form-data">
+        <label for="profile-picture">Изменить аватар профиля:</label>
+        <input type="file" id="profile-picture" name="profile-picture" accept="image/*"><br><br>
+        
+        <label for="description">Изменить описание профиля:</label><br>
+        <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
+        
+        <button class="btn-sumbit" type="submit">Сохранить</button>
+    </form>
+</body>
+</html>

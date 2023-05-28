@@ -12,5 +12,6 @@ func ProfileRoute(rg *gin.RouterGroup) {
 	rg.Use()
 	{
 		rg.GET("/profile", middleware.AuthMiddleware(database.DB), controllers.ProfilePageGetController)
+		rg.POST("/profile", middleware.AuthMiddleware(database.DB), controllers.ProfilePagePostController)
 	}
 }

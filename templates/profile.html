@@ -14,8 +14,8 @@
 	<nav>
 		<a id="current_page">Мой профиль</a>
 		<a href="#">Мои достижения</a>
-		<a href="#">О нас</a>
-		<a href="/logout">Выйти</a>
+		<a href="/about">О нас</a>
+		<a href="/logout">Выйти из профиля</a>
 	</nav>
 	<div class="user-info">
 		<img src="user-avatar.jpg" alt="Аватар пользователя">
@@ -26,7 +26,7 @@
 		<p>Куратор: {{ .user.Curator_name }}</p>
 		<p>Специальность: {{ .user.Speciality_name }}</p>
 		<p id="about">О себе: {{ .user.Description }}</p>
-		<button>Редактировать профиль</button>
+		<a href="/edit_profile" class="edit-profile-button">Редактировать профиль</a>
 	</div>
 </body>
 </html>

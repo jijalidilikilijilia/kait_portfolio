@@ -58,3 +58,8 @@ func getUserData(ctx *gin.Context) userInfoToShow {
 
 	return userInfo
 }
+
+func ProfilePagePostController(ctx *gin.Context) {
+	// Возможно в дальнейшем будут проблемы. Сейчас это ответ на запрос от /edit_profile
+	ctx.Redirect(http.StatusFound, "/profile")
+}
