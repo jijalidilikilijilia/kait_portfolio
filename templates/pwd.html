@@ -34,7 +34,7 @@
         <input type="password" id="new-password" name="new-password"><br><br>
         
         <label for="description">Изменить описание профиля:</label><br>
-        <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
+        <textarea id="description" name="description" rows="4" cols="50">{{ .user.Description}}</textarea><br><br>
         
         <button class="btn-sumbit" type="submit">Сохранить</button>
     </form>

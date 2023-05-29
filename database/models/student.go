@@ -10,4 +10,5 @@ type Student struct {
 	Speciality_id int    `json:"speciality_id"`
 	Description   string `gorm:"column:description"`
 	Cumpus_id     int    `json:"cumpus_id"`
+	Photo         []byte `gorm:"user_photo"`
 }

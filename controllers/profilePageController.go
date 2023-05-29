@@ -16,6 +16,7 @@ type userInfoToShow struct {
 	Curator_name    string
 	Speciality_name string
 	Description     string
+	User_photo      []byte
 }
 
 func ProfilePageGetController(ctx *gin.Context) {
@@ -34,7 +35,7 @@ func getUserData(ctx *gin.Context) userInfoToShow {
 	user_id := session.Get("user_id").(uint)
 
 	err := db.Table("kait_portfolio.student").
-		Select("student.full_name", "age", "groups.group_name", "cumpus.cumpus_name", "curators.full_name as curator_name", "specialities.speciality_name", "description").
+		Select("student.full_name", "age", "groups.group_name", "cumpus.cumpus_name", "curators.full_name as curator_name", "specialities.speciality_name", "description", "student.user_photo").
 		Joins("JOIN kait_portfolio.groups ON student.group_id = groups.id").
 		Joins("JOIN kait_portfolio.cumpus ON student.cumpus_id = cumpus.id").
 		Joins("JOIN kait_portfolio.curators ON groups.curator_id = curators.id").
@@ -54,6 +55,7 @@ func getUserData(ctx *gin.Context) userInfoToShow {
 		Curator_name:    userInfo.Curator_name,
 		Speciality_name: userInfo.Speciality_name,
 		Description:     userInfo.Description,
+		User_photo:      userInfo.User_photo,
 	}
 
 	return userInfo

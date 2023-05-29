@@ -24,7 +24,7 @@
         <input type="file" id="profile-picture" name="profile-picture" accept="image/*"><br><br>
         
         <label for="description">Изменить описание профиля:</label><br>
-        <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
+        <textarea id="description" name="description" rows="4" cols="50">{{ .description}}</textarea><br><br>
         
         <button class="btn-sumbit" type="submit">Сохранить</button>
     </form>
