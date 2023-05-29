@@ -18,7 +18,7 @@
 		<a href="/logout">Выйти из профиля</a>
 	</nav>
 	<div class="user-info">
-		<img src="user-avatar.jpg" alt="Аватар пользователя">
+		<img src="data:image/jpeg;base64, {{ .userPhoto }}" alt="Без картинки">
 		<h2>{{ .user.Full_name }}</h2>
 		<p>Возраст: {{ .user.Age }}</p>
 		<p>Группа: {{ .user.Group_name }}</p>

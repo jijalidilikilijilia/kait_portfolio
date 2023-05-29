@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"encoding/base64"
 	"kait_portfolio/database"
 	"net/http"
 
@@ -16,18 +17,19 @@ type userInfoToShow struct {
 	Curator_name    string
 	Speciality_name string
 	Description     string
-	User_photo      []byte
+	Photo           []byte
 }
 
 func ProfilePageGetController(ctx *gin.Context) {
-	userInfoToShow := getUserData(ctx)
+	userInfoToShow, userPhoto := getUserData(ctx)
 
 	ctx.HTML(http.StatusOK, "profile.html", gin.H{
-		"user": userInfoToShow,
+		"user":      userInfoToShow,
+		"userPhoto": userPhoto,
 	})
 }
 
-func getUserData(ctx *gin.Context) userInfoToShow {
+func getUserData(ctx *gin.Context) (userInfoToShow, string) {
 	session := sessions.Default(ctx)
 	db := database.DB
 	var userInfo userInfoToShow
@@ -35,7 +37,7 @@ func getUserData(ctx *gin.Context) userInfoToShow {
 	user_id := session.Get("user_id").(uint)
 
 	err := db.Table("kait_portfolio.student").
-		Select("student.full_name", "age", "groups.group_name", "cumpus.cumpus_name", "curators.full_name as curator_name", "specialities.speciality_name", "description", "student.user_photo").
+		Select("student.full_name", "age", "groups.group_name", "cumpus.cumpus_name", "curators.full_name as curator_name", "specialities.speciality_name", "description", "student.photo").
 		Joins("JOIN kait_portfolio.groups ON student.group_id = groups.id").
 		Joins("JOIN kait_portfolio.cumpus ON student.cumpus_id = cumpus.id").
 		Joins("JOIN kait_portfolio.curators ON groups.curator_id = curators.id").
@@ -47,6 +49,8 @@ func getUserData(ctx *gin.Context) userInfoToShow {
 		ctx.Abort()
 	}
 
+	User_photo := base64.StdEncoding.EncodeToString(userInfo.Photo)
+
 	userInfo = userInfoToShow{
 		Full_name:       userInfo.Full_name,
 		Age:             userInfo.Age,
@@ -55,10 +59,10 @@ func getUserData(ctx *gin.Context) userInfoToShow {
 		Curator_name:    userInfo.Curator_name,
 		Speciality_name: userInfo.Speciality_name,
 		Description:     userInfo.Description,
-		User_photo:      userInfo.User_photo,
+		Photo:           userInfo.Photo,
 	}
 
-	return userInfo
+	return userInfo, User_photo
 }
 
 func ProfilePagePostController(ctx *gin.Context) {

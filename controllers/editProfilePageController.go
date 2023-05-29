@@ -1,7 +1,9 @@
 package controllers
 
 import (
+	"io"
 	"kait_portfolio/database"
+	"kait_portfolio/database/models"
 	"log"
 	"net/http"
 
@@ -26,39 +28,53 @@ func EditProfileGetController(ctx *gin.Context) {
 }
 
 func EditProfilePostController(ctx *gin.Context) {
-	session := sessions.Default(ctx)
-	newDesc := ctx.PostForm("description")
-	user_photo := getStudentPhotoData(ctx)
-	db := database.DB
-	user_id := session.Get("user_id").(uint)
-
-	result := db.Table("kait_portfolio.student").Where("id = ?", user_id).Update("description", newDesc).Update("user_photo", user_photo)
-	if result.Error != nil {
-		panic("ОШИБКА В ЗАПРОСЕ АПДЕЙТ ДЕСКРИПТИОН))")
-	}
+	updateStudentDesc(ctx)
+	updateStudentPhoto(ctx)
 
 	ctx.Redirect(http.StatusFound, "/profile")
 }
 
-func getStudentPhotoData(ctx *gin.Context) []byte {
+func updateStudentDesc(ctx *gin.Context) {
+	session := sessions.Default(ctx)
+	newDesc := ctx.PostForm("description")
+	db := database.DB
+	user_id := session.Get("user_id").(uint)
+
+	result := db.Table("kait_portfolio.student").Where("id = ?", user_id).Update("description", newDesc)
+	if result.Error != nil {
+		panic("ОШИБКА В ЗАПРОСЕ АПДЕЙТ ДЕСКРИПТИОН))")
+	}
+}
+
+func updateStudentPhoto(ctx *gin.Context) {
+	session := sessions.Default(ctx)
+	user_id := session.Get("user_id").(uint)
+	db := database.DB
+	var student models.Student
+
 	file, err := ctx.FormFile("profile-picture")
 	if err != nil {
-		ctx.String(400, "error file downloadj")
-		ctx.Abort()
+		log.Println("error: ", err)
 	}
 
 	src, err := file.Open()
 	if err != nil {
-		ctx.String(400, "error file open")
-		ctx.Abort()
+		log.Println("error: ", err)
 	}
 	defer src.Close()
 
-	data := make([]byte, file.Size)
-	if _, err := src.Read(data); err != nil {
-		ctx.String(400, "error reading file data")
-		ctx.Abort()
+	data, err := io.ReadAll(src)
+	if err != nil {
+		log.Println("error", err)
 	}
 
-	return data
+	if err := db.Table("kait_portfolio.student").First(&student, user_id).Error; err != nil {
+		log.Println(err)
+	}
+
+	student.Photo = data
+
+	if err := db.Table("kait_portfolio.student").Save(&student).Error; err != nil {
+		log.Println(err)
+	}
 }
