@@ -23,24 +23,25 @@
 		<a href="/about">О проекте</a>
 	</nav>
 
-	<form class="upload_work" action="/works" method="post">
+	<form class="upload_work" action="/works" method="POST" enctype="multipart/form-data">
 		<p>Загрузить работу</p>
 		<input type="file" name="work" id="work">
+        <button class="btn-sumbit" type="submit">Сохранить</button>
 	</form>
 
 	<h2>Ваши работы</h2>
 	{{ if .message}}
 		<div id="error_message">{{ .message }}</div>
 	{{ else }}
+	<div class="grid-container">
 		{{ range .works}}
-			<div class="grid-container">
-				<div class="grid-item">
-					<h3>{{ .File_name }}</h3>
-					<p>{{ .Upload_date }}</p>
-					<button>Загрузить</button>
-				</div>
+			<div class="grid-item">
+				<h3>{{ .File_name }}</h3>
+				<p>{{ .Upload_date }}</p>
+				<a href="/download/{{.Id }}">Загрузить</a>
 			</div>
 		{{ end }}
+	</div>
 	{{ end }}
 	<!-- <div class="grid-container">
 		<div class="grid-item">

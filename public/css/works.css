@@ -61,3 +61,7 @@ h2 {
 p {
     font-size: 21px;
 }
+
+.btn-sumbit:hover {
+    background-color: #412C84;
+}
