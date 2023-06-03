@@ -53,3 +53,8 @@ form {
 p {
     font-size: 21px; 
 }
+
+.logo {
+    width: 400px;
+    height: 200px;
+}

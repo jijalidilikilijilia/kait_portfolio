@@ -40,6 +40,7 @@ func main() {
 	routes.EditProfileRoute(rootPath)
 	routes.WorksRoute(rootPath)
 	routes.Download(rootPath)
+	routes.Delete(rootPath)
 
 	router.Run(":8000")
 }

@@ -62,6 +62,64 @@ p {
     font-size: 21px;
 }
 
+.btn-sumbit {
+    padding: 6px;
+    border-radius: 5px;
+    margin-top: 10px;
+    border: none#876ED7;
+    background-color: #6A48D7;
+    color: #fff;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+    cursor: pointer;
+    width: 10%;
+}
+
+
 .btn-sumbit:hover {
     background-color: #412C84;
+}
+
+.logo {
+    width: 400px;
+    height: 200px;
+}
+
+.btn-download {
+    padding: 6px;
+    border-radius: 5px;
+    margin-top: 10px;
+    border: none#876ED7;
+    background-color: #6A48D7;
+    color: #fff;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+    cursor: pointer;
+    width: 10%;
+    text-decoration: none;
+}
+
+.btn-download:hover {
+    background-color: #412C84;
+}
+
+.btn-delete {
+    padding: 6px;
+    border-radius: 5px;
+    margin-top: 10px;
+    border: none#876ED7;
+    background-color: #6A48D7;
+    color: #fff;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+    cursor: pointer;
+    width: 10%;
+    text-decoration: none;
+}
+
+.btn-delete:hover {
+    background-color: #8c0023;
 }

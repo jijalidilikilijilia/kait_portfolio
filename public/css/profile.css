@@ -80,3 +80,8 @@ margin: 0 auto;
 .edit-profile-button:hover {
     background-color: #412C84;
 }
+
+.logo {
+    width: 400px;
+    height: 200px;
+}

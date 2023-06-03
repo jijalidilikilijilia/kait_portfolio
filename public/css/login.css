@@ -65,3 +65,8 @@ cursor: pointer;
 button:hover {
 background-color: #412C84;
 }
+
+.logo {
+    width: 400px;
+    height: 200px;
+}

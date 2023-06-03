@@ -13,7 +13,7 @@
 <body>
     <header>
 		<a href="https://kait20.mskobr.ru/">
-			<img src="../public/img/logo-kait.jpg" alt="Мой логотип" width="200">
+			<img class="logo" src="../public/img/logo-kait.jpg" alt="Мой логотип" width="200">
 		</a>
 	</header>
 	<nav>
@@ -26,8 +26,10 @@
 	<form class="upload_work" action="/works" method="POST" enctype="multipart/form-data">
 		<p>Загрузить работу</p>
 		<input type="file" name="work" id="work">
-        <button class="btn-sumbit" type="submit">Сохранить</button>
+		<br>
+        <button class="btn-sumbit" type="submit">Загрузить</button>
 	</form>
+	<hr>
 
 	<h2>Ваши работы</h2>
 	{{ if .message}}
@@ -38,21 +40,11 @@
 			<div class="grid-item">
 				<h3>{{ .File_name }}</h3>
 				<p>{{ .Upload_date }}</p>
-				<a href="/download/{{.Id }}">Загрузить</a>
+				<a class="btn-download" href="/download/{{.Id }}">Скачать работу</a>
+				<a class="btn-delete" href="/delete/{{.Id }}">Удалить работу</a>
 			</div>
 		{{ end }}
 	</div>
 	{{ end }}
-	<!-- <div class="grid-container">
-		<div class="grid-item">
-		  <h3>Змейка юнити</h3>
-		  <p>Дата загрузки: 04.05.2023</p>
-		  <button>Загрузить</button>
-		</div>
-		<div class="grid-item">
-		  <h3>Программа полиндром python</h3>
-		  <p>Дата загрузки: 24.04.2023</p>
-		  <button>Загрузить</button>
-		</div> -->
 </body>
 </html>
