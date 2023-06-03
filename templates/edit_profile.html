@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/css/edit_profile.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
     <title>Редактировать профиль</title>
 </head>
 <body>
@@ -20,9 +22,9 @@
 		<a href="/logout">Выйти из профиля</a>
 	</nav>
     <form action="/edit_profile" method="POST" enctype="multipart/form-data">
-        <label for="profile-picture">Изменить аватар профиля:</label>
+        <p>Изменить аватар профиля:</p>
         <input type="file" id="profile-picture" name="profile-picture" accept="image/*"><br><br>
-        
+        <br>
         <label for="description">Изменить описание профиля:</label><br>
         <textarea id="description" name="description" rows="4" cols="50">{{ .description}}</textarea><br><br>
         

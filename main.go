@@ -38,6 +38,7 @@ func main() {
 	routes.LogoutRoute(rootPath)
 	routes.AboutRoute(rootPath)
 	routes.EditProfileRoute(rootPath)
+	routes.WorksRoute(rootPath)
 
 	router.Run(":8000")
 }

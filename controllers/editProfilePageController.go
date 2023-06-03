@@ -53,8 +53,13 @@ func updateStudentPhoto(ctx *gin.Context) {
 	var student models.Student
 
 	file, err := ctx.FormFile("profile-picture")
+
 	if err != nil {
 		log.Println("error: ", err)
+	}
+
+	if file == nil {
+		return
 	}
 
 	src, err := file.Open()

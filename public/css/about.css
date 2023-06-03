@@ -2,7 +2,6 @@
     font-family: 'Fira Code', monospace;
 }
 
-
 header {
     background-color: white;
     color: black;
@@ -27,29 +26,10 @@ nav a:hover {
     color: #333;
 }
 
-form {
-    margin-top: 50px;
+#current_page {
+    background-color: #4e296b46;
+}
+
+.about {
     text-align: center;
-}
-
-.error {
-    color: red;
-}
-
-.btn-sumbit {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 5px 5px;
-    background-color: #6A48D7;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-}
-
-.btn-sumbit:hover {
-    background-color: #412C84;
-}
-
-p {
-    font-size: 21px; 
 }

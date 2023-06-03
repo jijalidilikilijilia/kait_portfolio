@@ -4,6 +4,8 @@
 	<meta charset="UTF-8">
 	<title>Мой профиль</title>
 	<link rel="stylesheet" href="../public/css/profile.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
 </head>
 <body>
 	<header>
@@ -13,9 +15,9 @@
 	</header>
 	<nav>
 		<a id="current_page">Мой профиль</a>
-		<a href="#">Мои достижения</a>
-		<a href="/about">О нас</a>
+		<a href="/works">Мои работы</a>
 		<a href="/logout">Выйти из профиля</a>
+		<a href="/about">О проекте</a>
 	</nav>
 	<div class="user-info">
 		<img src="data:image/jpeg;base64, {{ .userPhoto }}" alt="Без картинки">

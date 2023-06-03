@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/works.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <title>Мои работы</title>
+</head>
+<body>
+    <header>
+		<a href="https://kait20.mskobr.ru/">
+			<img src="../public/img/logo-kait.jpg" alt="Мой логотип" width="200">
+		</a>
+	</header>
+	<nav>
+		<a href="/profile">Мой профиль</a>
+		<a id="current_page" href="/works">Мои работы</a>
+		<a href="/logout">Выйти из профиля</a>
+		<a href="/about">О проекте</a>
+	</nav>
+
+	<form class="upload_work" action="/works" method="post">
+		<p>Загрузить работу</p>
+		<input type="file" name="work" id="work">
+	</form>
+
+	<h2>Ваши работы</h2>
+	{{ if .message}}
+		<div id="error_message">{{ .message }}</div>
+	{{ else }}
+		{{ range .works}}
+			<div class="grid-container">
+				<div class="grid-item">
+					<h3>{{ .File_name }}</h3>
+					<p>{{ .Upload_date }}</p>
+					<button>Загрузить</button>
+				</div>
+			</div>
+		{{ end }}
+	{{ end }}
+	<!-- <div class="grid-container">
+		<div class="grid-item">
+		  <h3>Змейка юнити</h3>
+		  <p>Дата загрузки: 04.05.2023</p>
+		  <button>Загрузить</button>
+		</div>
+		<div class="grid-item">
+		  <h3>Программа полиндром python</h3>
+		  <p>Дата загрузки: 24.04.2023</p>
+		  <button>Загрузить</button>
+		</div> -->
+</body>
+</html>

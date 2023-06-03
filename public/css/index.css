@@ -1,3 +1,8 @@
+* {
+    font-family: 'Fira Code', monospace;
+}
+
+
 body {
 margin: 0;
 padding: 0;
@@ -34,4 +39,18 @@ cursor: pointer;
 
 button:hover {
 background-color: #412C84;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 65%;
+    margin: 0 auto; /* Добавлено для центрирования контейнера по горизонтали */
+}
+
+.button-label {
+    font-size: 21px;
 }

@@ -3,6 +3,8 @@
   <head>
     <title>Добро пожаловать</title>
     <link rel="stylesheet" href="../public/css/index.css">
+	  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
   </head>
   <body>
   <header>
@@ -10,10 +12,12 @@
       <img id="logo" src="../public/img/logo-kait.jpg" alt="Логотип">
   </a>
     </header>
-    <main>
+    <div class="info">
       <h1>Добро пожаловать в систему электронного портфолио!</h1>
-      <h2>Следите за своими успехами, храните свои достижения, следите за информацией. Всё в одном месте.Войдите в свой аккаунт, данный вам вашими кураторами</h2>
-      <button onclick="document.location='login'">Войти в аккаунт</button>
-    </main>
+      <h2>Нам очень важно, чтобы вовремя и после учёбы у вас сохранились ваши работы. Ваши победы, проекты, программы, фото, видео, идеи, сценарии - всё является частью вашего портфолио, которое поможет вам в дальнейшем жизненном пути. Вам предоставлен доступ к удобному инструменту хранения багажа вашего опыта.</h2>
+      <br>
+      <p class="button-label">Войдите в аккаунт, который вам дали ваши кураторы</p>
+      <button id="login-button" onclick="document.location='login'">Войти в аккаунт</button>
+    </div>
   </body>
 </html>
